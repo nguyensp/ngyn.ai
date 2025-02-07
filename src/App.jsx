@@ -59,9 +59,11 @@ const App = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-blue-600">Featured Application</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <a href="https://github.com/nguyensp/Munger" target="_blank" rel="noopener noreferrer"
+              className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl hover:text-blue-600 transition">
               {currentApp.title}
-            </p>
+            </a>
+
             <p className="mt-2 text-sm text-blue-500">
               {currentApp.status}
             </p>
