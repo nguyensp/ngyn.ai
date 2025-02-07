@@ -163,7 +163,7 @@ const App = () => {
               <Github className="h-6 w-6" />
             </a>
             <a href="https://paulnguyen.dev" className="text-gray-400 hover:text-gray-500">
-              Portfolio
+              Resume
             </a>
           </div>
           <div className="mt-8 md:order-1 md:mt-0">
