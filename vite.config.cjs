@@ -1,6 +1,6 @@
 const react = require('@vitejs/plugin-react')
 
 module.exports = {
-    base: '/ngyn.ai/',
+    base: './',  
     plugins: [react()]
 }
