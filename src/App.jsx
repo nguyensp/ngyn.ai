@@ -6,14 +6,64 @@ const App = () => {
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  // Google Form URL - Replace YOUR_FORM_ID with your actual form ID
+  const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdn4jDNNnjREoVSWUsPuqgunbvRYwbU9x_a0kA8PoxyioyEEQ/formResponse';
+  
+  // Field IDs found in your form's HTML
+  const GOOGLE_FORM_NAME_FIELD = 'entry.885647116';
+  const GOOGLE_FORM_EMAIL_FIELD = 'entry.1523057939';
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send this to your backend
-    console.log('Submitted:', { name, email });
+    
+    // Create invisible iframe for submission
+    const iframe = document.createElement('iframe');
+    iframe.name = 'hidden_iframe';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    
+    // Create form element
+    const form = document.createElement('form');
+    form.action = GOOGLE_FORM_URL;
+    form.method = 'post';
+    form.target = 'hidden_iframe';
+    
+    // Add name field
+    const nameField = document.createElement('input');
+    nameField.type = 'text';
+    nameField.name = GOOGLE_FORM_NAME_FIELD;
+    nameField.value = name;
+    form.appendChild(nameField);
+    
+    // Add email field
+    const emailField = document.createElement('input');
+    emailField.type = 'text';
+    emailField.name = GOOGLE_FORM_EMAIL_FIELD;
+    emailField.value = email;
+    form.appendChild(emailField);
+    
+    // Add the form to the document and submit it
+    document.body.appendChild(form);
+    form.submit();
+    
+    // Clean up
+    setTimeout(() => {
+      document.body.removeChild(form);
+      document.body.removeChild(iframe);
+    }, 1000);
+    
+    // For debugging
+    console.log('Submitted to Google Form:', { name, email });
+    
+    // Update UI
     setSubmitted(true);
-    // Reset form
     setEmail('');
     setName('');
+    
+    // Reset success message after 3 seconds
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 3000);
   };
 
   const currentApp = {
@@ -120,6 +170,7 @@ const App = () => {
                     onChange={(e) => setName(e.target.value)}
                     className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                     placeholder="Paul Nguyen"
+                    required
                   />
                 </div>
                 <div>
@@ -134,6 +185,7 @@ const App = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                     placeholder="you@example.com"
+                    required
                   />
                 </div>
               </div>
