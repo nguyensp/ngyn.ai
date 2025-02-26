@@ -77,7 +77,7 @@ const App = () => {
       "Work through investment thesis inversion questions with AI to stress-test your analysis",
       "Uncover hidden insights and patterns across multiple financial documents"
     ],
-    icon: <Zap className="w-6 h-6" />
+    icon: <img src="/src/assets/RembrandtPugIcon.jpg" className="w-6 h-6 object-cover" alt="Munger.AI logo" />
   };
 
   return (
