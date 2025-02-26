@@ -124,7 +124,9 @@ const App = () => {
                 <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-blue-600 text-white">
                   {currentApp.icon}
                 </div>
-                <h3 className="text-2xl font-bold tracking-tight text-gray-900">{currentApp.title}</h3>
+                <a href="https://github.com/nguyensp/Munger" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold tracking-tight text-gray-900 hover:text-blue-600 transition">
+                  {currentApp.title}
+                </a>
               </div>
               <p className="mt-6 text-base leading-7 text-gray-600">
                 {currentApp.description}
