@@ -77,7 +77,7 @@ const App = () => {
       "Work through investment thesis inversion questions with AI to stress-test your analysis",
       "Uncover hidden insights and patterns across multiple financial documents"
     ],
-    icon: <img src="/src/assets/RembrandtPugIcon.jpg" className="w-6 h-6 object-cover" alt="Munger.AI logo" />
+    icon: <img src="/RembrandtPugIcon.jpg" className="w-full h-full object-cover" alt="Munger.AI logo" />
   };
 
   return (
@@ -121,9 +121,9 @@ const App = () => {
           <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
               <div className="flex items-center gap-x-4">
-                <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-blue-600 text-white">
-                  {currentApp.icon}
-                </div>
+              <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-blue-600 p-0 overflow-hidden">
+                {currentApp.icon}
+              </div>
                 <a href="https://github.com/nguyensp/Munger" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold tracking-tight text-gray-900 hover:text-blue-600 transition">
                   {currentApp.title}
                 </a>
